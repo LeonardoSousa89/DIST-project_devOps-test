@@ -1,0 +1,10 @@
+sudo rm - rf [nome-da-pasta]
+cd ../../../
+
+git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git
+
+cd DIST-project_devOps-test
+cd app @v1.0.65
+
+cd 'Eureka-server'
+cd 'Api-gateway'
