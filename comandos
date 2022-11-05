@@ -20,6 +20,7 @@ combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-proj
     cd 'app @v1.0.65' &&
     cd Eureka-server 
     sudo docker build -t leozin89/dist-eureka-server:v1 . && 
+    sudo docker login -u leozin89 &&
     sudo docker push leozin89/dist-eureka-server:v1
    
 
@@ -29,10 +30,11 @@ combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-proj
     cd 'app @v1.0.65' &&
     cd Api-gateway 
     sudo docker build -t leozin89/dist-api-gateway:v1 . &&
+    sudo docker login -u leozin89 &&
     sudo docker push leozin89/dist-api-gateway:v1
 
 # a partir do nivel do eureka-server
 cd ../../../../
 
 # a partir do nivel do eureka-server
-cd ../../../  && sudo rm -rf DIST-project_devOps-test && cd ..
+cd ../../../  && sudo rm -rf DIST-project_devOps-test && cd .. && clear
