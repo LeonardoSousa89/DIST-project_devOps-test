@@ -15,11 +15,18 @@ cd 'Eureka-server'
 cd 'Api-gateway'
 
 combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  
-      cd DIST-project_devOps-test
-       sudo rm -rf 'app @v1.0.64' &&
-       cd 'app @v1.0.65' &&
-       cd Eureka-server 
-       sudo docker build -t eureka-server:v1 .
+    cd DIST-project_devOps-test
+    sudo rm -rf 'app @v1.0.64' &&
+    cd 'app @v1.0.65' &&
+    cd Eureka-server 
+    sudo docker build -t eureka-server:v1 .
+
+combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  
+    cd DIST-project_devOps-test
+    sudo rm -rf 'app @v1.0.64' &&
+    cd 'app @v1.0.65' &&
+    cd Api-gateway 
+    sudo docker build -t api-gateway:v1 .
 
 # a partir do nivel do eureka-server
 cd ../../../../
