@@ -24,4 +24,5 @@ combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-proj
 # a partir do nivel do eureka-server
 cd ../../../../
 
-sudo rm -rf DIST-project_devOps-test
+# a partir do nivel do eureka-server
+cd ../../../  && sudo rm -rf DIST-project_devOps-test && cd ..
