@@ -21,20 +21,33 @@ combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-proj
     cd Eureka-server 
     sudo docker build -t leozin89/dist-eureka-server:v1 . && 
     sudo docker login -u leozin89 &&
-    sudo docker push leozin89/dist-eureka-server:v1
+    sudo docker push leozin89/dist-eureka-server:v1 &&
+    sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 leozin89/dist-eureka-server:v1 && docker service ls  
    
-
-combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  
-    cd DIST-project_devOps-test
-    sudo rm -rf 'app @v1.0.64' &&
-    cd 'app @v1.0.65' &&
+# usado no nivel do eureka sever
+combo:  
+    cd .. &&
     cd Api-gateway 
     sudo docker build -t leozin89/dist-api-gateway:v1 . &&
     sudo docker login -u leozin89 &&
-    sudo docker push leozin89/dist-api-gateway:v1
-
-# a partir do nivel do eureka-server
+    sudo docker push leozin89/dist-api-gateway:v1 &&
+    sudo docker run -p 8761:8761 --name api-gateway --network distnetwork leozin89/dist-api-gateway:v1 
+   
+#  usado no nivel do eureka-server
 cd ../../../../
 
 # a partir do nivel do eureka-server
 cd ../../../  && sudo rm -rf DIST-project_devOps-test && cd .. && clear
+
+sudo docker swarm init
+
+sudo docker ps -a
+
+sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 leozin89/dist-api-gateway:v1	
+
+sudo docker service create --name api-gateway --replicas 3 -p 8765:8765 leozin89/dist-api-gateway:v1	
+
+sudo docker sevice ls
+sudo docker sevice rm [nome-do-servico]
+
+sudo docker node ls
