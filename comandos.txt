@@ -2,6 +2,19 @@
 
 #comandos básicos (docker & linux) e navegação no ambiente
 
+#linux PID/Network
+https://www.certificacaolinux.com.br/portas-abertas-no-linux/#:~:text=Os%20comandos%20netstat%2C%20ss%2C%20lsof,local%2C%20quanto%20de%20m%C3%A1quinas%20remotas.
+https://www.hostinger.com.br/tutoriais/comando-kill-linux
+
+sudo apt install net-tools
+netstat
+sudo netstat -tunlp
+netstat -tunl
+sudo lsof -i
+
+
+
+
 sudo rm -rf [nome-da-pasta]
 
 git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git
@@ -94,14 +107,3 @@ cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devO
 
 
 
-linux PID/Network
-https://www.certificacaolinux.com.br/portas-abertas-no-linux/#:~:text=Os%20comandos%20netstat%2C%20ss%2C%20lsof,local%2C%20quanto%20de%20m%C3%A1quinas%20remotas.
-
-
-https://www.hostinger.com.br/tutoriais/comando-kill-linux
-
-sudo apt install net-tools
-netstat
-sudo netstat -tunlp
-netstat -tunl
-sudo lsof -i
