@@ -17,7 +17,8 @@ cd 'Api-gateway'
 mkdir devOpsDist
 rm -rf devOpsDist
 
-combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  
+----------------------------------------------------------------------------------------------------------------------
+combo: cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  
     cd DIST-project_devOps-test
     sudo rm -rf 'app @v1.0.64' &&
     cd 'app @v1.0.65' &&
@@ -26,21 +27,22 @@ combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-proj
     sudo docker login -u leozin89 &&
     sudo docker push leozin89/dist-eureka-server:v1 &&
     cd ../../../../ &&
-    sudo docker run -d --name eureka-server --network distnetwork -p 8761:8761 leozin89/dist-eureka-server:v1   
-   
-# usado no nivel do eureka sever
-combo:  
-    cd .. &&
+    sudo docker run -d --name eureka-server --network distnetwork -p 8761:8761 leozin89/dist-eureka-server:v1 &&
+    cd devOpsDist  &&
+    cd DIST-project_devOps-test &&
+    cd 'app @v1.0.65' &&
     cd Api-gateway 
     sudo docker build -t leozin89/dist-api-gateway:v1 . &&
     sudo docker login -u leozin89 &&
     sudo docker push leozin89/dist-api-gateway:v1 &&
-    sudo docker run -d --name api-gateway --network distnetwork -p 8765:8765 leozin89/dist-api-gateway:v1   
-   
+    sudo docker run -d --name api-gateway --network distnetwork -p 8765:8765 leozin89/dist-api-gateway:v1     
+----------------------------------------------------------------------------------------------------------------------
+
+
 #  usado no nivel do eureka-server
 cd ../../../../
 
-# a partir do nivel do eureka-server
+# a partir do nivel do eureka-server ou api-gateway
 cd ../../../  && sudo rm -rf DIST-project_devOps-test && cd .. && clear
 
 sudo docker swarm init
