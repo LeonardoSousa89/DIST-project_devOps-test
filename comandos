@@ -1,10 +1,24 @@
-sudo rm - rf [nome-da-pasta]
-cd ../../../
+sudo rm -rf [nome-da-pasta]
+
+sudo rm -rf DIST-project_devOps-test
+
+cd ../../
 
 git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git
 
 cd DIST-project_devOps-test
-cd app @v1.0.65
+
+sudo rm -rf 'app @v1.0.64' 
+ls 
+
+cd app '@v1.0.65'
 
 cd 'Eureka-server'
 cd 'Api-gateway'
+
+combo: cd devOpsDist 
+       git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  cd DIST-project_devOps-test
+       sudo rm -rf 'app @v1.0.64' 
+       cd 'app @v1.0.65' 
+       cd Eureka-server 
+       sudo docker build -t eureka-server:v1 .
