@@ -4,7 +4,7 @@ VOLUME /tmp
 
 EXPOSE 8765  
 
-ADD ./target/Api-gateway-0.0.1-SNAPSHOT.jar api-gateway.jar
+ADD ./target/Api-gateway-0.0.1-SNAPSHOT.jar Api-gateway.jar
 
-ENTRYPOINT ["java","-jar","/api-gateway.jar"]
+ENTRYPOINT ["java","-jar","/Api-gateway.jar"]
 
