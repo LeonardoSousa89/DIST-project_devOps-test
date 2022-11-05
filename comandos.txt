@@ -110,3 +110,11 @@ combo:
 
 
 
+# nivel de orquestração
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+combo:
+    sudo docker network create --driver overlay distnetworkcluster &&
+    sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 --network distnetworkcluster leozin89/dist-eureka-server:v1 &&
+    sudo docker service create --name api-gateway --replicas 3 -p 8765:8765 --network distnetworkcluster  leozin89/dist-api-gateway:v1
+-------------------------------------------------------------------------------------------------------------------------------------------------
