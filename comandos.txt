@@ -14,6 +14,9 @@ cd app '@v1.0.65'
 cd 'Eureka-server'
 cd 'Api-gateway'
 
+mkdir devOpsDist
+rm -rf devOpsDist
+
 combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git  
     cd DIST-project_devOps-test
     sudo rm -rf 'app @v1.0.64' &&
@@ -22,7 +25,8 @@ combo:  cd devOpsDist  && git clone https://github.com/LeonardoSousa89/DIST-proj
     sudo docker build -t leozin89/dist-eureka-server:v1 . && 
     sudo docker login -u leozin89 &&
     sudo docker push leozin89/dist-eureka-server:v1 &&
-    sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 leozin89/dist-eureka-server:v1 && docker service ls  
+    cd ../../../../ &&
+    sudo docker run -d --name eureka-server --network distnetwork -p 8761:8761 leozin89/dist-eureka-server:v1   
    
 # usado no nivel do eureka sever
 combo:  
@@ -31,7 +35,7 @@ combo:
     sudo docker build -t leozin89/dist-api-gateway:v1 . &&
     sudo docker login -u leozin89 &&
     sudo docker push leozin89/dist-api-gateway:v1 &&
-    sudo docker run -p 8761:8761 --name api-gateway --network distnetwork leozin89/dist-api-gateway:v1 
+    sudo docker run -d --name api-gateway --network distnetwork -p 8765:8765 leozin89/dist-api-gateway:v1   
    
 #  usado no nivel do eureka-server
 cd ../../../../
@@ -51,3 +55,15 @@ sudo docker sevice ls
 sudo docker sevice rm [nome-do-servico]
 
 sudo docker node ls
+
+linux PID/Network
+https://www.certificacaolinux.com.br/portas-abertas-no-linux/#:~:text=Os%20comandos%20netstat%2C%20ss%2C%20lsof,local%2C%20quanto%20de%20m%C3%A1quinas%20remotas.
+
+
+https://www.hostinger.com.br/tutoriais/comando-kill-linux
+
+sudo apt install net-tools
+netstat
+sudo netstat -tunlp
+netstat -tunl
+sudo lsof -i
