@@ -27,24 +27,4 @@ public class WorkersController {
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}*/
 	
-	@GetMapping
-	public ResponseEntity<List<Workers>> findAll(){
-		List<Workers> workers=service.findAll() ;
-		return ResponseEntity.status(HttpStatus.OK).body(workers);
-	}
-
-	/*
-	 * org.postgresql.util.PSQLException: ERROR: operator does not exist: character varying ~~ bytea
-  	Dica: No operator matches the given name and argument types. You might need to add explicit type casts.
-  	Posição: 54
-	 * 
-	 * */
-	/*
-	 * @GetMapping(value = "/requestControlled")
-	public ResponseEntity<List<WorkersProjection>> findByWorkerName(@RequestParam(value = "workerName", defaultValue = "") String workerName) throws UnsupportedEncodingException{
-		workerName = URL.decodeParam(workerName);
-		List<WorkersProjection> workers=service.findByWorkerName(workerName);
-		return ResponseEntity.status(HttpStatus.OK).body(workers);
-	}*/
-	
 }
