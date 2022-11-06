@@ -13,16 +13,12 @@ import dist.com.User.repository.WorkersRepository;
 @Service
 public class UserService {
 		
+	// será usado em um futuro posterior
 	@Autowired
 	private UserRepository repository;
 	
 	@Autowired
 	private WorkersRepository workersRepository;
-	
-	public User getUser(Long id) {
-		User admin = repository.findById(id).get();
-		return admin;
-	}
 	
 	public List <WorkersProjection> findByUserData(Long userId) {
 		List <WorkersProjection> employee = workersRepository.findByUserData(userId);

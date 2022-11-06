@@ -15,16 +15,16 @@ import dist.com.User.model.Workers;
 import dist.com.User.service.WorkersService;
 
 @RestController
-@RequestMapping(value = "/dist/worker/test")
+@RequestMapping(value = "/dist/worker")
 public class WorkersController {
 
 	@Autowired
 	private WorkersService service;
 	
-	/*@PostMapping(value = "/{id}/administration")
-	public ResponseEntity<Workers> saveWorker(@RequestBody Workers employee){
-		service.saveWorker(employee);
+	@PostMapping(value = "/{id}/administration")
+	public ResponseEntity<Workers> insertWorker(@RequestBody Workers worker){
+		service.insertWorker(worker);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
-	}*/
+	}
 	
 }

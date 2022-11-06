@@ -1,7 +1,5 @@
 package dist.com.User.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +12,8 @@ public class WorkersService {
 	@Autowired
 	private WorkersRepository repository;
 	
-	//teste
-	public List<Workers> findAll(){
-		List<Workers> employees = repository.findAll();
-		return employees;
+	public Workers insertWorker(Workers worker) {
+		return repository.save(worker);
 	}
 	
 }
