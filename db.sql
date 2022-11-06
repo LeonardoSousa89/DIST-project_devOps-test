@@ -24,10 +24,10 @@ DELETE FROM DIST_WORKERS;
 SELECT  W.WORKER_ID,
  	W.WORKER_ADDRESS,
 	W.WORKER_AGE,
-	WORKER_EMAIL,
-	WORKER_NAME,
-	WORKER_PHONE_NUMBER ,
-	WORKER_POST      	
+	W.WORKER_EMAIL,
+	W.WORKER_NAME,
+	W.WORKER_PHONE_NUMBER ,
+	W.WORKER_POST      	
 FROM DIST_USERS U
 INNER JOIN DIST_WORKERS W
 ON U.USER_ID=W.USER_ID
@@ -36,10 +36,10 @@ WHERE U.USER_ID='1';
 SELECT  W.WORKER_ID,
  	W.WORKER_ADDRESS,
 	W.WORKER_AGE,
-	WORKER_EMAIL,
-	WORKER_NAME,
-	WORKER_PHONE_NUMBER ,
-	WORKER_POST      	
+	W.WORKER_EMAIL,
+	W.WORKER_NAME,
+	W.WORKER_PHONE_NUMBER ,
+	W.WORKER_POST      	
 FROM DIST_USERS U
 INNER JOIN DIST_WORKERS W
 ON U.USER_ID=W.USER_ID
@@ -120,6 +120,30 @@ DELETE FROM dist_users;
 
 SELECT workerName, workerEmail, workerPost, workerAddress FROM dist_workers;
 SELECT workerName, workerEmail FROM dist_workers WHERE workerEmail='dawes@yahoo.com';
+
+SELECT  w.workerId,
+ 	w.workerName ,
+	w.workerEmail,
+	w.workerPost, 
+	w.workerAddress,
+	w.workerPhoneNumber,
+	w.workerAge 	
+FROM dist_users u
+INNER JOIN dist_workers w
+ON u.userId =w.user_id
+WHERE u.userId ='1';
+
+SELECT  w.workerId,
+ 	w.workerName ,
+	w.workerEmail,
+	w.workerPost, 
+	w.workerAddress,
+	w.workerPhoneNumber,
+	w.workerAge 	
+FROM dist_users u
+INNER JOIN dist_workers w
+ON u.userId =w.user_id
+WHERE u.userId ='2';
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
