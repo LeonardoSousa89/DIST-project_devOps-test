@@ -3,27 +3,34 @@ package dist.com.User.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import dist.com.User.model.Workers;
+import dist.com.User.projection.WorkersProjection;
 import dist.com.User.repository.WorkersRepository;
 
 @Service
 public class WorkersService {
-		
+	
 	@Autowired
 	private WorkersRepository repository;
 	
-	//em teste
-	/*public Workers findByWorker(Workers workername) {
-		return repository.findByWorkers(workername);
-	}*/
+	/*
+	 * org.postgresql.util.PSQLException: ERROR: operator does not exist: character varying ~~ bytea
+  	Dica: No operator matches the given name and argument types. You might need to add explicit type casts.
+  	Posição: 54
+	 * 
+	 * */
+	public List<WorkersProjection> findByWorkerName(String workerName){
+		Workers name = new Workers();
+		workerName = name.getWorkerName();
+		List<WorkersProjection> workers=repository.findByWorkerName(workerName);
+		return workers;
+	}
 	
 	public Workers saveWorker(Workers employee) {
 		return repository.save(employee);
 	}
-	
 	
 	public Workers getWorkerById(Long id) {
 		return repository.findById(id).get();

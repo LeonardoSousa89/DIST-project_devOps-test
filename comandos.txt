@@ -126,3 +126,5 @@ combo:
 
  # https://stackoverflow.com/questions/38693560/docker1-12-worker-not-able-to-join-in-clusterswarm-pending
  # https://forums.docker.com/t/fail-join-node-as-worker/48321
+
+ 

@@ -1,0 +1,10 @@
+dist\com\User\model\User.class
+dist\com\User\controller\UserController.class
+dist\com\User\repository\util\URL.class
+dist\com\User\controller\WorkersController.class
+dist\com\User\service\UserService.class
+dist\com\User\UserApplication.class
+dist\com\User\repository\UserRepository.class
+dist\com\User\service\WorkersService.class
+dist\com\User\model\Workers.class
+dist\com\User\repository\WorkersRepository.class
