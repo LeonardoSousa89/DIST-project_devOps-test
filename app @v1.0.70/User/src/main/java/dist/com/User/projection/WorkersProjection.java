@@ -2,7 +2,6 @@ package dist.com.User.projection;
 
 public interface WorkersProjection {
 
-	//dados dos trabalhadores
 	long getWorkerId();
 	String getWorkerName();
 	String getWorkerEmail();
@@ -10,7 +9,5 @@ public interface WorkersProjection {
 	String getWorkerAddress();
 	String getWorkerPhoneNumber();
 	String getWorkerAge();
-		
-	//dados do usuário
-	long geUserId(); 
+
 }
