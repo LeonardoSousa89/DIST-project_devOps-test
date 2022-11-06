@@ -107,13 +107,21 @@ DROP TRABLE dist_workers;
 SELECT * FROM dist_users;
 SELECT * FROM dist_workers;
 
-INSERT INTO dist_users VALUES(1,'Thomas Wayne', 'Thomas@gmail.com');
+INSERT INTO dist_users VALUES(1, 'Thomas Wayne', 'Thomas@gmail.com');
 INSERT INTO dist_users VALUES(2, 'Thomas Leo Clancy Jr','Clancys@hotmail.com');
+INSERT INTO dist_users VALUES(3, 'Jim Lee','dccomics@hotmail.com');
 
 INSERT INTO dist_workers VALUES(1, 'Alfred Penworth', 'wayneenterprise@ask.com', 'butler', 'Gotham city', '(415) 555-2671','62' ,1);
 INSERT INTO dist_workers VALUES(2, 'Rachel Dawes',  'dawes@yahoo.com', 'lawyer','Gotham city', '(415) 555-3592', '23', 1);
 INSERT INTO dist_workers VALUES(3, 'Samuel Leo Fisher', 'echelon@outlook.com', 'Secret Agent', 'Baltimore, Maryland', '(415) 555-2789', '36', 2);
+INSERT INTO dist_workers VALUES(4, 'Frank Miller', 'millercomics@outlook.com', 'writter/drawer', 'Olney, Maryland', '(415) 555-8974', '65', 3);
+INSERT INTO dist_workers VALUES(5, 'Alan More', 'watchmenseries@ask.com', 'writter', 'Northampton, United Kingdom', '(415) 555-8745', '68', 3);
+INSERT INTO dist_workers VALUES(6, 'Todd McFarlane', 'spiderman90@marvel.com', 'drawer', 'Calgary, Canada', '(415) 555-7877', '61', 3);
 
+
+
+SELECT * FROM dist_users;
+SELECT * FROM dist_workers;
 
 DELETE FROM dist_workers;
 DELETE FROM dist_users;
