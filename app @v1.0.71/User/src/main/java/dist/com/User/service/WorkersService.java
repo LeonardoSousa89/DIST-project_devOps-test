@@ -17,17 +17,15 @@ public class WorkersService {
 	private WorkersRepository repository;
 	
 	public Workers insertWorker(Workers worker) {
+		
 		try {
-		return repository.save(worker);
+			return repository.save(worker);
 		}catch (Exception e) {
-			throw new ResourceBadRequestException("verify if your email is insert on field or perhaps already exists.");
+			throw new ResourceBadRequestException("verify if your email is inserted on field or perhaps already exists.");
 		}
-
-		/*try {
-		return repository.save(worker);
-		}catch (Exception e) {
-			
-		}*/
+		
 	}
+	
+	
 	
 }
