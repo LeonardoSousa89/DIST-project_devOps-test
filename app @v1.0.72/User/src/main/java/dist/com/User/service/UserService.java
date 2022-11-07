@@ -1,8 +1,10 @@
 package dist.com.User.service;
 
-import java.util.List;
+import java.awt.print.Pageable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import dist.com.User.projection.WorkersProjection;
@@ -20,9 +22,10 @@ public class UserService {
 	@Autowired
 	private WorkersRepository workersRepository;
 	
-	public List <WorkersProjection> findByUserData(Long id) {
+	
+	public Page<WorkersProjection> findByUserData(Long id,  PageRequest pageRequest) {
 		
-		List <WorkersProjection> employee = workersRepository.findByUserData(id);
+		Page<WorkersProjection> employee = workersRepository.findByUserData(id, pageRequest);
 
 		if(employee.isEmpty()) {
 			

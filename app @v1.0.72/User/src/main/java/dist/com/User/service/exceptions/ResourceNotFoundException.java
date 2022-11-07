@@ -6,7 +6,7 @@ public class ResourceNotFoundException extends RuntimeException{
 	
 	//aulas de tratamento de erro do curso de java completo, 317 a 319
 	public ResourceNotFoundException(Object id) {
-		super("Resource not found" + "," +"userId: " + id);
+		super("No workers add yet" + "," +"userId: " + id);
 	}
 	
 }
