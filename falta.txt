@@ -1,0 +1,6 @@
+falta o recurso de paginação,
+o container para o app,
+gerar a build do app, 
+criar um novo app com o artefato DIST,
+conectar ao RDS, 
+e criar a comunicação com o eureka-server e api-gateway(containers)
