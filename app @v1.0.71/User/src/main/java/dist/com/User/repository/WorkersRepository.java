@@ -20,7 +20,7 @@ public interface WorkersRepository extends JpaRepository<Workers, Long>{
 			"	w.workerAddress," + 
 			"	w.workerPhoneNumber," + 
 			"	w.workerAge" + 
-			" FROM dist_users u INNER JOIN dist_workers w ON u.userId = w.user_id WHERE u.userId = (:userId)")
-	List<WorkersProjection> findByUserData(Long  userId); 
+			" FROM dist_users u INNER JOIN dist_workers w ON u.userId = w.user_id WHERE u.userId = (:id)")
+	List<WorkersProjection> findByUserData(Long  id); 
 	
 }

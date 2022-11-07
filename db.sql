@@ -58,20 +58,6 @@ UPDATE DIST_WORKERS SET WORKER_AGE='24' WHERE WORKER_ID   = '2' AND ADMIN_USER_I
 
 
 
-QUERY PARA @QUERY() JPA
-
-----------------------------------------------------------------------------------------------------------------------------------------------
----Psql---
-
-"SELECT workerName, workerEmail, workerPost, workerAddress FROM dist_workers"
-"SELECT workerName FROM dist_workers WHERE workerName LIKE (:workername)"
-
----H2---
-
-"SELECT WORKER_NAME, WORKER_EMAIL, WORKER_POST, WORKER_ADDRESS FROM  DIST_WORKERS"
-"SELECT WORKER_NAME, WORKER_EMAIL, WORKER_POST, WORKER_ADDRESS FROM  DIST_WORKERS WHERE WORKER_NAME = (:workerName)"
-
-
 
 
 
@@ -152,10 +138,23 @@ ON u.userId =w.user_id
 WHERE u.userId ='2';
 
 
+/*paginação*/
+/* LIMIT por página, OFFSET saltos para a próxima consulta*/
+select * from dist_workers LIMIT 3 OFFSET 1;
+select * from dist_workers LIMIT 5 OFFSET 0;
+select * from dist_workers LIMIT 2 OFFSET 0;
+			   	
+select * from dist_workers LIMIT 5;
+select * from dist_workers LIMIT 5 OFFSET 5;
+
+/*paginação para meu uso*/
+select * from dist_workers LIMIT 5 OFFSET 5;
+
 ALTER TABLE  dist_workers DROP COLUMN workername;
 ALTER TABLE  dist_workers ADD COLUMN workername varchar(100) UNIQUE;
 
 REF: https://www.tutorialspoint.com/postgresql/postgresql_alter_command.htm
+     https://clebersonsilva.com/2018/01/limit-e-offset-no-postgresql/#:~:text=O%20PostgreSQL%20%C3%A9%20muito%20amigo,do%20que%20pagina%C3%A7%C3%A3o%20no%20cliente.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 

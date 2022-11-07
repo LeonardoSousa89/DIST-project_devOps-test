@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dist.com.User.projection.WorkersProjection;
 import dist.com.User.service.UserService;
+import dist.com.User.service.exceptions.ResourceNotFoundException;
 
 @RestController
 @RequestMapping(value = "/dist/worker")

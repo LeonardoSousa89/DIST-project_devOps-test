@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dist.com.User.model.User;
 import dist.com.User.projection.WorkersProjection;
 import dist.com.User.repository.UserRepository;
 import dist.com.User.repository.WorkersRepository;
+import dist.com.User.service.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -20,9 +20,19 @@ public class UserService {
 	@Autowired
 	private WorkersRepository workersRepository;
 	
-	public List <WorkersProjection> findByUserData(Long userId) {
-		List <WorkersProjection> employee = workersRepository.findByUserData(userId);
-		return employee;
+	public List <WorkersProjection> findByUserData(Long id) {
+		
+		List <WorkersProjection> employee = workersRepository.findByUserData(id);
+
+		if(employee.isEmpty()) {
+			
+			throw new ResourceNotFoundException(id);
+			
+		}
+		
+		return employee;	
 	}
+	
+	
 	
 }
