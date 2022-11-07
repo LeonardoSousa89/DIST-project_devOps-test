@@ -70,7 +70,7 @@ CREATE DATABASE distproject;
 CREATE TABLE IF NOT EXISTS dist_users(
 	userId SERIAL PRIMARY KEY,
 	name VARCHAR(100),
-	email VARCHAR(100) UNIQUE
+	email VARCHAR(100) UNIQUE NOT NULL
 );
 
 DROP TABLE dist_users;
@@ -78,7 +78,7 @@ DROP TABLE dist_users;
 CREATE TABLE IF NOT EXISTS dist_workers(
 	workerId SERIAL PRIMARY KEY,
  	workerName VARCHAR(100),
-	workerEmail VARCHAR(100) UNIQUE,
+	workerEmail VARCHAR(100) UNIQUE NOT NULL,
 	workerPost VARCHAR(100),
 	workerAddress VARCHAR(100),
 	workerPhoneNumber VARCHAR(100),
