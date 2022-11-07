@@ -118,8 +118,6 @@ INSERT INTO dist_workers VALUES(4, 'Frank Miller', 'millercomics@outlook.com', '
 INSERT INTO dist_workers VALUES(5, 'Alan More', 'watchmenseries@ask.com', 'writter', 'Northampton, United Kingdom', '(415) 555-8745', '68', 3);
 INSERT INTO dist_workers VALUES(6, 'Todd McFarlane', 'spiderman90@marvel.com', 'drawer', 'Calgary, Canada', '(415) 555-7877', '61', 3);
 
-
-
 SELECT * FROM dist_users;
 SELECT * FROM dist_workers;
 
@@ -154,6 +152,10 @@ ON u.userId =w.user_id
 WHERE u.userId ='2';
 
 
+ALTER TABLE  dist_workers DROP COLUMN workername;
+ALTER TABLE  dist_workers ADD COLUMN workername varchar(100) UNIQUE;
+
+REF: https://www.tutorialspoint.com/postgresql/postgresql_alter_command.htm
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 
