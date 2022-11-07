@@ -32,5 +32,13 @@
 	        "workerPhoneNumber": "(415) 555-7548",
 	        "workerAge": "24",
 	        "admin":{ "userId":2 }
+	    },{
+	        "workerName": "Harry Osborn",
+	        "workerEmail": "oscorp@gmail.com",
+	        "workerPost": "manager",
+	        "workerAddress": "Manhattan, New York",
+	        "workerPhoneNumber": "(415) 555-7845",
+	        "workerAge": "23",
+	        "admin":{ "userId":3 }
 	    }
 ]

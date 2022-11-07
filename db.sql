@@ -73,12 +73,12 @@ CREATE TABLE IF NOT EXISTS dist_users(
 	email VARCHAR(100) UNIQUE
 );
 
-DROP TRABLE dist_users;
+DROP TABLE dist_users;
 
 CREATE TABLE IF NOT EXISTS dist_workers(
 	workerId SERIAL PRIMARY KEY,
  	workerName VARCHAR(100),
-	workerEmail VARCHAR(100),
+	workerEmail VARCHAR(100) UNIQUE,
 	workerPost VARCHAR(100),
 	workerAddress VARCHAR(100),
 	workerPhoneNumber VARCHAR(100),
@@ -86,9 +86,7 @@ CREATE TABLE IF NOT EXISTS dist_workers(
 	user_Id INT,
 	FOREIGN KEY(user_Id) REFERENCES dist_users(userId)
 );
-
-DROP TRABLE dist_workers;
-
+DROP TABLE dist_workers;
 
 SELECT * FROM dist_users;
 SELECT * FROM dist_workers;
