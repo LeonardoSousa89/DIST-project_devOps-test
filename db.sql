@@ -61,7 +61,7 @@ UPDATE DIST_WORKERS SET WORKER_AGE='24' WHERE WORKER_ID   = '2' AND ADMIN_USER_I
 
 
 
-QUERY PARA POSTGRES
+QUERY PARA POSTGRES/RDS
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 CREATE DATABASE distproject;
@@ -134,6 +134,18 @@ FROM dist_users u
 INNER JOIN dist_workers w
 ON u.userId =w.user_id
 WHERE u.userId ='2';
+
+SELECT  w.workerId,
+ 	w.workerName ,
+	w.workerEmail,
+	w.workerPost, 
+	w.workerAddress,
+	w.workerPhoneNumber,
+	w.workerAge 	
+FROM dist_users u
+INNER JOIN dist_workers w
+ON u.userId =w.user_id
+WHERE u.userId ='3';
 
 
 /*paginação*/
