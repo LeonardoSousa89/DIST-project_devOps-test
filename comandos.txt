@@ -13,8 +13,6 @@ netstat -tunl
 sudo lsof -i
 
 
-
-
 sudo rm -rf [nome-da-pasta]
 
 git clone https://github.com/LeonardoSousa89/DIST-project_devOps-test.git
@@ -39,15 +37,16 @@ cd ../../../../
 # a partir do nivel do eureka-server ou api-gateway
 cd ../../../  && sudo rm -rf DIST-project_devOps-test && cd .. && clear
 
+sudo docker network create distnetwork
 
 sudo docker swarm init
-sudo docker network create --driver overlay distnetwork
+sudo docker network create --driver overlay distnetworkcluster
 sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 --network distnetwork leozin89/dist-eureka-server:v1	
 sudo docker service create --name api-gateway --replicas 3 -p 8765:8765 --network distnetwork  leozin89/dist-api-gateway:v1	
 sudo docker sevice ls
 sudo docker sevice rm [nome-do-servico]
 sudo docker node ls
-sudo docker network create --driver overlay distnetworkcluster
+
 
 rm -rf devOpsDist && mkdir devOpsDist
 
@@ -77,6 +76,16 @@ combo:
     cd ../../../../ && sudo docker ps -a
 ----------------------------------------------------------------------------------------------------------------------
 
+
+
+# nivel de implantação básica(nivel do Dockerfile)
+----------------------------------------------------
+combo:
+
+	sudo docker build -t leozin89/dist-user:v1 .
+	sudo docker login -u leozin89
+	sudo docker push leozin89/dist-user:v1
+----------------------------------------------------
 
 
 
@@ -120,6 +129,8 @@ combo:
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
 # nivel de orquestração full application
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -129,6 +140,9 @@ combo:
     sudo docker service create --name dist-api-gateway --replicas 3 -p 8765:8765 --network distnetworkcluster  leozin89/dist-api-gateway:v1
     sudo docker service create --name dist-user --replicas 3 -p 8762:8762 --network distnetworkcluster  leozin89/dist-user:v1
 -------------------------------------------------------------------------------------------------------------------------------------------------
+
+monitoramneto:
+sudo  docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
 
  
  # get project container
