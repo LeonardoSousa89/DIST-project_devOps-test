@@ -136,9 +136,9 @@ combo:
 -------------------------------------------------------------------------------------------------------------------------------------------------
 combo:
     sudo docker network create --driver overlay distnetworkcluster &&
-    sudo docker service create --name dist-eureka-server --replicas 3 -p 8761:8761 --network distnetworkcluster leozin89/dist-eureka-server:v1 &&
-    sudo docker service create --name dist-api-gateway --replicas 3 -p 8765:8765 --network distnetworkcluster  leozin89/dist-api-gateway:v1
-    sudo docker service create --name dist-user --replicas 3 -p 8762:8762 --network distnetworkcluster  leozin89/dist-user:v1
+    sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 --network distnetworkcluster leozin89/dist-eureka-server:v1 &&
+    sudo docker service create --name api-gateway --replicas 3 -p 8765:8765 --network distnetworkcluster  leozin89/dist-api-gateway:v1
+    sudo docker service create --name user --replicas 3 -p 8762:8762 --network distnetworkcluster  leozin89/dist-user:v1
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
 monitoramneto:
