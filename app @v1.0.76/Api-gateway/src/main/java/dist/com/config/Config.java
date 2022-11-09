@@ -20,8 +20,10 @@ public class Config extends WebSecurityConfigurerAdapter {
 	
 	/*
 	 * 
-	 * para tratar o erro 404 ou 400 neste recurso,
+	 * para tratar o erro 504 ou 400 neste recurso,
 	 * necessito fazer uma requisição rest com open feign e tratar o erro a partir desta camada.
+	 * 
+	 * fazer este tratamento após finalizar os app mobile e web
 	 * 
 	 * */
 	
