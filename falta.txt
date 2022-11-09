@@ -1,4 +1,3 @@
 criar um novo app com o artefato DIST,
-e criar a comunicação com o eureka-server e api-gateway(containers),
 a camada de DTO, 
 inserir a classe com a politica de CORS
