@@ -18,6 +18,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class Config extends WebSecurityConfigurerAdapter {
 	
+	/*
+	 * 
+	 * para tratar o erro 404 ou 400 neste recurso,
+	 * necessito fazer uma requisição rest com open feign e tratar o erro a partir desta camada.
+	 * 
+	 * */
+	
 	@Autowired
 	private Environment env;
 
