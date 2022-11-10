@@ -6,10 +6,6 @@ const fetch=require('node-fetch')
 const express=require('express')
 const server=express.Router()
 
-
-
-
-
 server.route(`/dist/worker/:id/administration`).get(async(req, res)=>{
     let userId={id: req.params.id}
     let id=Number(userId.id)
@@ -19,14 +15,14 @@ server.route(`/dist/worker/:id/administration`).get(async(req, res)=>{
         page: req.query.page
     }
 
-    const getUrl=`http://localhost:8765/User/dist/worker/${id}/administration?size=${pageRequest.size}&page=${pageRequest.page}`
+    const URL=`http://localhost:8765/User/dist/worker/${id}/administration?page=${pageRequest.page}`
 
-    await fetch(getUrl,{method: 'GET'})
+    await fetch(URL,{method: 'GET'})
     .then(response=>{
         
         if(response.status === 200){
             res.status(200)
-                return response.json()
+            return response.json()
         }
         
         if(response.status === 404) {
@@ -53,30 +49,32 @@ server.route(`/dist/worker/:id/administration`).get(async(req, res)=>{
 
 server.route(`/dist/worker/administration`).post(async(req,res)=>{
 
-    let data={
-        workerName: req.body.workerName,
-        workerEmail: req.body.workerEmail,
-        workerPost: req.body.workerPost,
-        workerAddress: req.body.workerAddress,
-        workerPhoneNumber: req.body.workerPhoneNumber,
-        workerAge: req.body.workerAge,
-        admin:{ userId }
-    }
+    let data={ workerName:"Lana Lang", 
+               workerEmail:"lanacoofe@gmail.com", 
+               workerPost:"seller",
+               workerAddress:"Smallville",
+               workerPhoneNumber:"(415) 555-7548",
+               workerAge:"24",
+               admin:{"userId":2}
+            }
+        
 
-    const postUrl='http://localhost:8765/Usert/dist/worker/administration'
+    const URL='http://localhost:8765/User/dist/worker/administration'
 
-    await fetch(  postUrl,
+    await fetch(  URL,
                 { method: 'POST', 
+                  body: JSON.stringify(data),
                   headers:{
-                    'Content-type':'aplication/json'
-                },
-                body: JSON.stringify(data)
+                    'Content-type':'application/json'
+                }
             })
     .then(response=>{
         
         if(response.status === 200){
             res.status(200)
-                return response.json()
+            msg="Worker created"
+            JSON.stringify(msg)
+            return msg
         }
         
         if(response.status === 400) {
@@ -95,6 +93,7 @@ server.route(`/dist/worker/administration`).post(async(req,res)=>{
             return msg
          }
         }).then(response=> res.json(response))
+
 })
 
 
