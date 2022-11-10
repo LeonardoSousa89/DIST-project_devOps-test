@@ -57,4 +57,18 @@ public class UserController {
 	
 	}
 	
+	@GetMapping(value = "/{id}/administration/pagination")
+	private ResponseEntity<Page<WorkersProjection>> findByUserDataControlledPagination(@PathVariable Long id,  
+																   @RequestParam(value = "page",  required = false,  defaultValue = "0") int page,
+																   @RequestParam(value = "size",  required = false, defaultValue = "5") int size){
+		
+		/** O frontend encontrou problemas ao
+		 * fazer requisições pagonadas com a mesma url.
+		 * */
+		PageRequest pageRequest = PageRequest.of(page, size);
+		Page<WorkersProjection> employee = service.findByUserData(id, pageRequest);
+		return ResponseEntity.status(org.springframework.http.HttpStatus.OK).body(employee);
+	
+	}
+	
 }
