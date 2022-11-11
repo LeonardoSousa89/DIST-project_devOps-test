@@ -71,7 +71,7 @@ server.route(`/dist/worker/administration`).post(async(req,res)=>{
     .then(response=>{
         
         if(response.status === 201){
-            res.status(200)
+            res.status(201)
             msg="Worker created"
             JSON.stringify(msg)
             return msg
