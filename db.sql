@@ -104,10 +104,10 @@ INSERT INTO dist_workers VALUES(6, 'Alan Moore',  'moore@yahoo.com', 'writter','
 INSERT INTO dist_workers VALUES(7, 'John Salvatore Romita Jr', 'romitajr@ask.com', 'drawer', 'New York/NY', '(415) 555-6666','66' ,1);
 INSERT INTO dist_workers VALUES(8, 'Frank Miller',  'sincity@yahoo.com', 'writter','Olney, Maryland', '(415) 555-0214', '65', 1);
 INSERT INTO dist_workers VALUES(9, 'Benjamin Parker,', 'ben@ask.com', 'seller', 'New York/NY', '(415) 555-5578','62' ,1);
-INSERT INTO dist_workers VALUES(10, 'Dr. Henry Philip McCoy',  'drmccoy@yahoo.com', 'scientist','	Dundee, Illinois', '(415) 555-3559', '33', 1);
-INSERT INTO dist_workers VALUES(11, 'Robert Louis Drake', 'iceman@ask.com', 'manager', 'New York/NY', '(415) 555-0650','27' ,1);
-INSERT INTO dist_workers VALUES(12, 'Anna Marie LeBeau',  'rogue@yahoo.com', 'assistent','NEW York/NY', '(415) 555-0020', '25', 1);
-INSERT INTO dist_workers VALUES(13, 'Katherine Anne Pryde', 'pryde@ask.com', 'trainee', 'Manhattan, NEW York', '(415) 555-5589','62' ,1);
+INSERT INTO dist_workers VALUES(10, 'Miles Bennett Dyson',  'genysis@yahoo.com', 'scientist', 'Chicago, Illinois', '(415) 555-3559', '33', 1);
+INSERT INTO dist_workers VALUES(11, 'Sarah Jeanette Connor', 'terminator84@ask.com', 'manager', 'Los Angeles, California', '(415) 555-0650','27' ,1);
+INSERT INTO dist_workers VALUES(12, 'Kyle Reese',  'reese2021@yahoo.com', 'assistent','----', '(415) 555-0020', '30', 1);
+INSERT INTO dist_workers VALUES(13, 'Jonh Connor', 'connor@ask.com', 'trainee', 'Manhattan, Los Angeles, California', '(415) 555-5589','17' ,1);
 INSERT INTO dist_workers VALUES(14, 'John Jonah Jameson Jr',  'daylibugle@yahoo.com', 'executive','NEW York/NY', '(415) 555-4445', '42', 1);
 INSERT INTO dist_workers VALUES(15, 'Ellen Louise Ripley', 'nostromos@ask.com', 'astronaut', '---', '(415) 555-0236','35' ,1);
 

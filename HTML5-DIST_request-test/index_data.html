@@ -8,129 +8,126 @@
     <title>DIST form test&reg;</title>
 </head>
 <body>
-    <div class="controllers">
-        <button class="styled-button" id="get">get</button>
-        <input class="userId" placeholder="user id">
-        <button class="styled-button" id="back">back</button>
-    </div>
+    <button class="styled-button" id="back">back</button>
 
-    <div class="container">
-
-
-        <div class="card">
-            <strong>name</strong>
-            <hr>
+    <span class="card-container" id="cardContainer">
+        
     
-            <strong>email</strong>
-            <hr>
-    
-            <strong>post</strong>
-            <hr>
-    
-            <strong>address</strong>
-            <hr>
-    
-            <strong>phone</strong>
-            <hr>
-    
-            <strong>age</strong>
-            <hr>
-        </div>
-    
-        <div class="card">
-            <strong>name</strong>
-            <hr>
-    
-            <strong>email</strong>
-            <hr>
-    
-            <strong>post</strong>
-            <hr>
-    
-            <strong>address</strong>
-            <hr>
-    
-            <strong>phone</strong>
-            <hr>
-    
-            <strong>age</strong>
-            <hr>
-        </div>
-    
-        <div class="card">
-            <strong>name</strong>
-            <hr>
-    
-            <strong>email</strong>
-            <hr>
-    
-            <strong>post</strong>
-            <hr>
-    
-            <strong>address</strong>
-            <hr>
-    
-            <strong>phone</strong>
-            <hr>
-    
-            <strong>age</strong>
-            <hr>
-        </div>
-    
-        <div class="card">
-            <strong>name</strong>
-            <hr>
-    
-            <strong>email</strong>
-            <hr>
-    
-            <strong>post</strong>
-            <hr>
-    
-            <strong>address</strong>
-            <hr>
-    
-            <strong>phone</strong>
-            <hr>
-    
-            <strong>age</strong>
-            <hr>
-        </div>
-    
-        <div class="card">
-            <strong>name</strong>
-            <hr>
-    
-            <strong>email</strong>
-            <hr>
-    
-            <strong>post</strong>
-            <hr>
-    
-            <strong>address</strong>
-            <hr>
-    
-            <strong>phone</strong>
-            <hr>
-    
-            <strong>age</strong>
-            <hr>
-        </div>
-    
-    </div>
-
-
-    </div>
+    </span>
    
     <script>
         let doc=document
         let back=doc.getElementById('back')
 
+        let card={
+            cardContainer: doc.getElementById('cardContainer'),
+        }
+
         back.addEventListener('click', (e)=>{
             e.preventDefault()
 
-            doc.location.href='index.html'
+            doc.location.href='index_search.html'
         })
+
+        function load(){
+
+                const data=localStorage.getItem("data")
+                let dataJson=JSON.parse(data)
+                
+                dataJson.map(e=>{
+                    let id=e.userId
+                    let page=e.page
+
+                    let URL=`http://localhost:8765/User/dist/worker/${id}/administration?page=${page}`
+                
+                    
+                    let config={method:'GET'}
+
+            fetch(URL, config)
+                .then(response=>{
+                    if(response.status === 200){
+                        
+                        let data=response
+                        
+                        data.json().then(response=>{
+                        
+                            let workers=response.content
+                            // console.log(workers)
+                        
+                    workers.map(e=>{
+                    
+                        let name=e.workerName
+                        let email=e.workerEmail
+                        let post=e.workerPost
+                        let address=e.workerAddress
+                        let phone=e.workerPhoneNumber
+                        let age=e.workerAge
+                        
+                        
+                        let div=doc.createElement('div')
+                        let strong=doc.createElement('strong')
+                        
+                        strong.append(name)
+                        div.append(strong)
+                        card.cardContainer.append(div)
+
+                        strong.append(email)
+                        div.append(strong)
+                        card.cardContainer.append(div)
+
+                        strong.append(post)
+                        div.append(strong)
+                        card.cardContainer.append(div)
+
+                        strong.append(address)
+                        div.append(strong)
+                        card.cardContainer.append(div)
+
+                        strong.append(phone)
+                        div.append(strong)
+                        card.cardContainer.append(div)
+
+                        strong.append(age)
+                        div.append(strong)
+                        card.cardContainer.append(div)
+                    })
+
+                })
+            }
+            if(response.status === 404){
+                alert("Resource not found")
+            }
+            if(response.status === 500 ||
+                response.status === 503 ||
+                response.status === 504){
+                alert("There's an error with server")
+            }
+            })
+            .catch(e=>console.log(e))
+                    
+                })
+        } 
+        load()
+    
+
+        function test(){
+            /*no localstorage os dados são salvos como string, pelo metodo stringify
+              para reutilizar os dados, se faz um parse para json e depois se trata as 
+              informações para utilização na página.
+            */
+            
+            const data=localStorage.getItem("data")
+            let dataJson=JSON.parse(data)
+         
+            dataJson.map(e=>{
+                let id=e.userId
+                let page=e.page
+
+                console.log(`http://localhost:8765/User/dist/worker/${id}/administration?page=${page}`)
+            })
+        }
+        test()
+
     </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+let URL='http://localhost:8765/User/dist/worker/administration'
+
 let doc=document
 
 let form={
@@ -14,5 +16,7 @@ let form={
 form.send.addEventListener('click',(e)=>{
     e.preventDefault()
 
-    doc.location.href='index_data.html'
+    doc.location.href='index_search.html'
 })
+
+function insertData(){}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <title>DIST form test&reg;</title>
+</head>
+<body>
+    <span class="controllers">
+            <button class="styled-button" id="get">get</button>
+            <span class="btn-search">
+                <input  type="number" class="user_id" id="user_id" placeholder="user id">
+                <input  type="number" class="user_id" id="page" placeholder="page">
+            </span>
+        <button class="styled-button" id="back">back</button>
+    </span>
+
+
+   
+    <script>
+        let doc=document
+        let back=doc.getElementById('back')
+
+        let card={
+            get:doc.getElementById('get'),
+            userId: doc.getElementById('user_id'),
+            page: doc.getElementById('page')
+        }
+
+        back.addEventListener('click', (e)=>{
+            e.preventDefault()
+
+            doc.location.href='index.html'
+        })
+
+        card.get.addEventListener('click',(e)=>{
+            e.preventDefault()
+
+            let data=[]
+            data.push({userId: card.userId.value, page: card.page.value})
+            localStorage.setItem("data", JSON.stringify(data))
+            doc.location.href='index_data.html'
+        })
+
+    </script>
+</body>
+</html>

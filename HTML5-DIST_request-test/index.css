@@ -7,16 +7,35 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background-color: brown;
 }
+.container{
+    /* background-color: black; */
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .controllers{
-    height: 200px;
+    /* background-color: black; */
+    height: 100vh;
     display: flex;
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
-.container{
+.btn-search{
+    /* background-color: blue; */
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    padding: 1vh;
+}
+.card-container{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -30,7 +49,7 @@ body{
     border: none;
     outline: none;
 }
-.userId{
+.user_id{
     padding: 2vh;
     width: 10vh;
     border: none;
@@ -52,9 +71,19 @@ body{
     transition-property: all;
     transition-duration: 1s;
 }
-.card{
+#back{
+    background-color: navy;
+    color: antiquewhite;
+}
+#back:hover{
+    background-color: whitesmoke;
+    color: black;
+    transition-property: all;
+    transition-duration: 1s;
+}
+div{
     height: 150px;
-    width: 250px;
+    width: 350px;
     margin: 15px 15px;
     border-radius: 6px;
     box-shadow: 0 0px 5px black;
@@ -62,3 +91,4 @@ body{
     padding: 1vh;
     text-align: center;
 }
+

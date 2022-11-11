@@ -24,15 +24,15 @@
 	        "workerPhoneNumber": "(415) 555-4458",
 	        "workerAge": "21",
 	        "admin":{ "userId":1 }
-	    },{
-	        "workerName": "Lana Lang",
-	        "workerEmail": "lanacoofe@gmail.com",
-	        "workerPost": "seller",
-	        "workerAddress": "Smallville",
-	        "workerPhoneNumber": "(415) 555-7548",
-	        "workerAge": "24",
-	        "admin":{ "userId":2 }
-	    },{
+		},{
+			"workerName": "Lana Lang",
+			"workerEmail": "lanacoofe@gmail.com",
+			"workerPost": "seller",
+			"workerAddress": "Smallville",
+			"workerPhoneNumber": "(415) 555-7548",
+			"workerAge": "24",
+			"admin":{ "userId":2 }
+			},{
 	        "workerName": "Harry Osborn",
 	        "workerEmail": "oscorp@gmail.com",
 	        "workerPost": "manager",
