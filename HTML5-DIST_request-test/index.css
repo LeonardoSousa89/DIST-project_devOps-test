@@ -88,7 +88,12 @@ div{
     border-radius: 6px;
     box-shadow: 0 0px 5px black;
     background-color: whitesmoke;
-    padding: 1vh;
+    padding: 3vh;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+strong{
+    margin-bottom: 5px;
 }
 

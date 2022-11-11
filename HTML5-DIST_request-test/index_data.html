@@ -65,30 +65,47 @@
                         
                         
                         let div=doc.createElement('div')
-                        let strong=doc.createElement('strong')
+
+                        let strongName=doc.createElement('strong')
+                        let strongEmail=doc.createElement('strong')
+                        let strongPost=doc.createElement('strong')
+                        let strongAddress=doc.createElement('strong')
+                        let strongPhone=doc.createElement('strong')
+                        let strongAge=doc.createElement('strong')
                         
-                        strong.append(name)
-                        div.append(strong)
+                        let hrName=doc.createElement('hr')
+                        let hrEmail=doc.createElement('hr')
+                        let hrPost=doc.createElement('hr')
+                        let hrAddress=doc.createElement('hr')
+                        let hrPhone=doc.createElement('hr')
+                        
+                        strongName.append(name)
+                        div.append(strongName)
+                        div.append(hrName)
                         card.cardContainer.append(div)
 
-                        strong.append(email)
-                        div.append(strong)
+                        strongEmail.append(email)
+                        div.append(strongEmail)
+                        div.append(hrEmail)
                         card.cardContainer.append(div)
 
-                        strong.append(post)
-                        div.append(strong)
+                        strongPost.append(post)
+                        div.append(strongPost)
+                        div.append(hrPost)
                         card.cardContainer.append(div)
 
-                        strong.append(address)
-                        div.append(strong)
+                        strongAddress.append(address)
+                        div.append(strongAddress)
+                        div.append(hrAddress)
                         card.cardContainer.append(div)
 
-                        strong.append(phone)
-                        div.append(strong)
+                        strongPhone.append(phone)
+                        div.append(strongPhone)
+                        div.append(hrPhone)
                         card.cardContainer.append(div)
 
-                        strong.append(age)
-                        div.append(strong)
+                        strongAge.append(age)
+                        div.append(strongAge)
                         card.cardContainer.append(div)
                     })
 
