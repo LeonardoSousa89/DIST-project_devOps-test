@@ -70,7 +70,7 @@ server.route(`/dist/worker/administration`).post(async(req,res)=>{
             })
     .then(response=>{
         
-        if(response.status === 200){
+        if(response.status === 201){
             res.status(200)
             msg="Worker created"
             JSON.stringify(msg)
