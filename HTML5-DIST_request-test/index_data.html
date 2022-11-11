@@ -58,79 +58,79 @@
                                     let workers=response.content
                                     // console.log(workers)
                                 
-                            workers.map(e=>{
-                                
-                                //dados obtidos do servidor
-                                let name=e.workerName
-                                let email=e.workerEmail
-                                let post=e.workerPost
-                                let address=e.workerAddress
-                                let phone=e.workerPhoneNumber
-                                let age=e.workerAge
-                                
-                                //container para alocar cada grupo de dados 
-                                let div=doc.createElement('div')
+                                    workers.map(e=>{
+                                    
+                                    //dados obtidos do servidor
+                                    let name=e.workerName
+                                    let email=e.workerEmail
+                                    let post=e.workerPost
+                                    let address=e.workerAddress
+                                    let phone=e.workerPhoneNumber
+                                    let age=e.workerAge
+                                    
+                                    //container para alocar cada grupo de dados 
+                                    let div=doc.createElement('div')
 
-                                //elemento html strong para armazenar cada dado do servidor 
-                                let strongName=doc.createElement('strong')
-                                let strongEmail=doc.createElement('strong')
-                                let strongPost=doc.createElement('strong')
-                                let strongAddress=doc.createElement('strong')
-                                let strongPhone=doc.createElement('strong')
-                                let strongAge=doc.createElement('strong')
-                                
-                                //elemento html hr para separar os dados 
-                                let hrName=doc.createElement('hr')
-                                let hrEmail=doc.createElement('hr')
-                                let hrPost=doc.createElement('hr')
-                                let hrAddress=doc.createElement('hr')
-                                let hrPhone=doc.createElement('hr')
-                                
-                                //cards
-                                strongName.append(name)
-                                div.append(strongName)
-                                div.append(hrName)
-                                card.cardContainer.append(div)
+                                    //elemento html strong para armazenar cada dado do servidor 
+                                    let strongName=doc.createElement('strong')
+                                    let strongEmail=doc.createElement('strong')
+                                    let strongPost=doc.createElement('strong')
+                                    let strongAddress=doc.createElement('strong')
+                                    let strongPhone=doc.createElement('strong')
+                                    let strongAge=doc.createElement('strong')
+                                    
+                                    //elemento html hr para separar os dados 
+                                    let hrName=doc.createElement('hr')
+                                    let hrEmail=doc.createElement('hr')
+                                    let hrPost=doc.createElement('hr')
+                                    let hrAddress=doc.createElement('hr')
+                                    let hrPhone=doc.createElement('hr')
+                                    
+                                    //cards
+                                    strongName.append(name)
+                                    div.append(strongName)
+                                    div.append(hrName)
+                                    card.cardContainer.append(div)
 
-                                strongEmail.append(email)
-                                div.append(strongEmail)
-                                div.append(hrEmail)
-                                card.cardContainer.append(div)
+                                    strongEmail.append(email)
+                                    div.append(strongEmail)
+                                    div.append(hrEmail)
+                                    card.cardContainer.append(div)
 
-                                strongPost.append(post)
-                                div.append(strongPost)
-                                div.append(hrPost)
-                                card.cardContainer.append(div)
+                                    strongPost.append(post)
+                                    div.append(strongPost)
+                                    div.append(hrPost)
+                                    card.cardContainer.append(div)
 
-                                strongAddress.append(address)
-                                div.append(strongAddress)
-                                div.append(hrAddress)
-                                card.cardContainer.append(div)
+                                    strongAddress.append(address)
+                                    div.append(strongAddress)
+                                    div.append(hrAddress)
+                                    card.cardContainer.append(div)
 
-                                strongPhone.append(phone)
-                                div.append(strongPhone)
-                                div.append(hrPhone)
-                                card.cardContainer.append(div)
+                                    strongPhone.append(phone)
+                                    div.append(strongPhone)
+                                    div.append(hrPhone)
+                                    card.cardContainer.append(div)
 
-                                strongAge.append(age)
-                                div.append(strongAge)
-                                card.cardContainer.append(div)
+                                    strongAge.append(age)
+                                    div.append(strongAge)
+                                    card.cardContainer.append(div)
+                                })
+
                             })
-
+                        }
+                        if(response.status === 404){
+                            alert("Resource not found")
+                        }
+                        if(response.status === 500 ||
+                            response.status === 503 ||
+                            response.status === 504){
+                            alert("There's an error with server")
+                        }
                         })
-                    }
-                    if(response.status === 404){
-                        alert("Resource not found")
-                    }
-                    if(response.status === 500 ||
-                        response.status === 503 ||
-                        response.status === 504){
-                        alert("There's an error with server")
-                    }
-                    })
-                    .catch(e=>console.log(e))
-                            
-                        })
+                        .catch(e=>console.log(e))
+                                
+                            })
         } 
         load()
     
