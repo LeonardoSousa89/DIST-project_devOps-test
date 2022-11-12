@@ -18,7 +18,6 @@ public class WorkersController {
 	@Autowired
 	private WorkersService service;
 	
-	// consumes = {"application/json"}
 	@PostMapping(value = "/administration")
 	public ResponseEntity<Object> insertWorker(@RequestBody Workers worker){
 		service.insertWorker(worker);

@@ -82,9 +82,9 @@ combo:
 ----------------------------------------------------
 combo:
 
-	sudo docker build -t leozin89/dist-user:v1 .
-	sudo docker login -u leozin89
-	sudo docker push leozin89/dist-user:v1
+	sudo docker build -t leozin89/dist-user:v2 . &&
+	sudo docker login -u leozin89 &&
+	sudo docker push leozin89/dist-user:v2
 ----------------------------------------------------
 
 
@@ -138,8 +138,22 @@ combo:
     sudo docker network create --driver overlay distnetworkcluster &&
     sudo docker service create --name eureka-server --replicas 3 -p 8761:8761 --network distnetworkcluster leozin89/dist-eureka-server:v1 &&
     sudo docker service create --name api-gateway --replicas 3 -p 8765:8765 --network distnetworkcluster  leozin89/dist-api-gateway:v1
-    sudo docker service create --name user --replicas 3 -p 8762:8762 --network distnetworkcluster  leozin89/dist-user:v1
+    sudo docker service create --name user --replicas 3 -p 8762:8762 --network distnetworkcluster  leozin89/dist-user:v2
 -------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+# nivel de load balancer com (n) máquinas:
+
+-------------------------------------------------------------------------------------------------------------
+sudo docker network create distnetwork &&
+sudo docker run -d --name eureka-server --network distnetwork -p 8761:8761 leozin89/dist-eureka-server:v1 &&
+sudo docker run -d --name api-gateway --network distnetwork -p 8765:8765 leozin89/dist-api-gateway:v1 &&
+sudo docker run -d --name user --network distnetwork -p 8762:8762 leozin89/dist-user:v2 
+-------------------------------------------------------------------------------------------------------------
+
+
+
 
 monitoramneto:
 sudo  docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
