@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <title>DIST form test&reg;</title>
+</head>
+<body>
+    <button class="styled-button" id="back">back</button>
+
+    <span class="card-container" id="cardContainer">
+        
+    
+    </span>
+   
+    <script>
+        let doc=document
+        let back=doc.getElementById('back')
+
+        let card={
+            cardContainer: doc.getElementById('cardContainer'),
+        }
+
+        back.addEventListener('click', (e)=>{
+            e.preventDefault()
+
+            doc.location.href='index_search.html'
+        })
+
+        function load(){
+
+                //obtendo recurso salvo no storage
+                const data=localStorage.getItem("data")
+                
+                //convertendo o string para JSON
+                let dataJson=JSON.parse(data)
+                
+                //mapeando e obtendo os dados convertidos
+                dataJson.map(e=>{
+                    let id=e.userId
+                    let page=e.page
+
+                    let URL=`http://localhost:8765/User/dist/worker/${id}/administration?page=${page}`
+                
+                    
+                    let config={method:'GET'}
+
+                    fetch(URL, config)
+                        .then(response=>{
+                            if(response.status === 200){
+                                
+                                let data=response
+                                
+                                data.json().then(response=>{
+                                
+                                    let workers=response.content
+                                    // console.log(workers)
+                                
+                                    workers.map(e=>{
+                                    
+                                    //dados obtidos do servidor
+                                    let name=e.workerName
+                                    let email=e.workerEmail
+                                    let post=e.workerPost
+                                    let address=e.workerAddress
+                                    let phone=e.workerPhoneNumber
+                                    let age=e.workerAge
+                                    
+                                    //container para alocar cada grupo de dados 
+                                    let div=doc.createElement('div')
+
+                                    //elemento html strong para armazenar cada dado do servidor 
+                                    let strongName=doc.createElement('strong')
+                                    let strongEmail=doc.createElement('strong')
+                                    let strongPost=doc.createElement('strong')
+                                    let strongAddress=doc.createElement('strong')
+                                    let strongPhone=doc.createElement('strong')
+                                    let strongAge=doc.createElement('strong')
+                                    
+                                    //elemento html hr para separar os dados 
+                                    let hrName=doc.createElement('hr')
+                                    let hrEmail=doc.createElement('hr')
+                                    let hrPost=doc.createElement('hr')
+                                    let hrAddress=doc.createElement('hr')
+                                    let hrPhone=doc.createElement('hr')
+                                    
+                                    //cards
+                                    strongName.append(name)
+                                    div.append(strongName)
+                                    div.append(hrName)
+                                    card.cardContainer.append(div)
+
+                                    strongEmail.append(email)
+                                    div.append(strongEmail)
+                                    div.append(hrEmail)
+                                    card.cardContainer.append(div)
+
+                                    strongPost.append(post)
+                                    div.append(strongPost)
+                                    div.append(hrPost)
+                                    card.cardContainer.append(div)
+
+                                    strongAddress.append(address)
+                                    div.append(strongAddress)
+                                    div.append(hrAddress)
+                                    card.cardContainer.append(div)
+
+                                    strongPhone.append(phone)
+                                    div.append(strongPhone)
+                                    div.append(hrPhone)
+                                    card.cardContainer.append(div)
+
+                                    strongAge.append(age)
+                                    div.append(strongAge)
+                                    card.cardContainer.append(div)
+                                })
+
+                            })
+                        }
+                        if(response.status === 404){
+                            alert("Resource not found")
+                        }
+                        if(response.status === 500 ||
+                            response.status === 503 ||
+                            response.status === 504){
+                            alert("There's an error with server")
+                        }
+                        })
+                        .catch(e=>console.log(e))
+                                
+                            })
+        } 
+        load()
+    
+
+        function test(){
+            /*no localstorage os dados são salvos como string, pelo metodo stringify
+              para reutilizar os dados, se faz um parse para json e depois se trata as 
+              informações para utilização na página.
+            */
+            
+            const data=localStorage.getItem("data")
+            let dataJson=JSON.parse(data)
+         
+            dataJson.map(e=>{
+                let id=e.userId
+                let page=e.page
+
+                console.log(`http://localhost:8765/User/dist/worker/${id}/administration?page=${page}`)
+            })
+        }
+        // test()
+
+    </script>
+</body>
+</html>

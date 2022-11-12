@@ -7,9 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import dist.com.User.model.User;
 import dist.com.User.projection.WorkersProjection;
 import dist.com.User.repository.UserRepository;
 import dist.com.User.repository.WorkersRepository;
+import dist.com.User.service.exceptions.ResourceBadRequestException;
 import dist.com.User.service.exceptions.ResourceNotFoundException;
 
 @Service
@@ -22,6 +24,14 @@ public class UserService {
 	@Autowired
 	private WorkersRepository workersRepository;
 	
+	
+	public User createAccount(User account) {
+		try {
+			return repository.save(account);
+		}catch (Exception e) {
+			throw new ResourceBadRequestException(" Was an error, verify if some field is empty or perhaps your email already exists");
+		}
+	}
 	
 	public Page<WorkersProjection> findByUserData(Long id,  PageRequest pageRequest) {
 		

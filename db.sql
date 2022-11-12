@@ -68,8 +68,8 @@ CREATE DATABASE distproject;
 \c distproject
 
 CREATE TABLE IF NOT EXISTS dist_users(
-	userId SERIAL PRIMARY KEY,
-	name VARCHAR(100),
+	userId VARCHAR(250) PRIMARY KEY NOT NULL,
+	username VARCHAR(100),
 	email VARCHAR(100) UNIQUE NOT NULL
 );
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS dist_workers(
 	workerAddress VARCHAR(100),
 	workerPhoneNumber VARCHAR(100),
 	workerAge VARCHAR(100),
-	user_Id INT,
+	user_Id VARCHAR(250),
 	FOREIGN KEY(user_Id) REFERENCES dist_users(userId)
 );
 DROP TABLE dist_workers;
@@ -91,31 +91,31 @@ DROP TABLE dist_workers;
 SELECT * FROM dist_users;
 SELECT * FROM dist_workers;
 
-INSERT INTO dist_users VALUES(1, 'Thomas Wayne', 'Thomas@gmail.com');
-INSERT INTO dist_users VALUES(2, 'Thomas Leo Clancy Jr','Clancys@hotmail.com');
-INSERT INTO dist_users VALUES(3, 'Jim Lee','dccomics@hotmail.com');
+INSERT INTO dist_users VALUES('1', 'Thomas Wayne', 'Thomas@gmail.com');
+INSERT INTO dist_users VALUES('2', 'Thomas Leo Clancy Jr','Clancys@hotmail.com');
+INSERT INTO dist_users VALUES('3', 'Jim Lee','dccomics@hotmail.com');
 
-INSERT INTO dist_workers VALUES(1, 'Alfred Penworth', 'wayneenterprise@ask.com', 'butler', 'Gotham city', '(415) 555-2671','62' ,1);
-INSERT INTO dist_workers VALUES(2, 'Rachel Dawes',  'dawes@yahoo.com', 'lawyer','Gotham city', '(415) 555-3592', '23', 1);
-INSERT INTO dist_workers VALUES(3, 'Jim lee', 'dccomics@ask.com', 'executive', 'Seul, South Corea', '(415) 555-8587','58' ,1);
-INSERT INTO dist_workers VALUES(4, 'Todd McFarlane',  'spiderman90@yahoo.com', 'drawer','Calgary, canada', '(415) 555-4455', '61', 1);
-INSERT INTO dist_workers VALUES(5, 'Clark Kent', 'dayliplanet@ask.com', 'jornalist', 'Metropolis', '(415) 555-3335','37' ,1);
-INSERT INTO dist_workers VALUES(6, 'Alan Moore',  'moore@yahoo.com', 'writter','Northampton, United Kingdom', '(415) 555-5587', '68', 1);
-INSERT INTO dist_workers VALUES(7, 'John Salvatore Romita Jr', 'romitajr@ask.com', 'drawer', 'New York/NY', '(415) 555-6666','66' ,1);
-INSERT INTO dist_workers VALUES(8, 'Frank Miller',  'sincity@yahoo.com', 'writter','Olney, Maryland', '(415) 555-0214', '65', 1);
-INSERT INTO dist_workers VALUES(9, 'Benjamin Parker,', 'ben@ask.com', 'seller', 'New York/NY', '(415) 555-5578','62' ,1);
-INSERT INTO dist_workers VALUES(10, 'Miles Bennett Dyson',  'genysis@yahoo.com', 'scientist', 'Chicago, Illinois', '(415) 555-3559', '33', 1);
-INSERT INTO dist_workers VALUES(11, 'Sarah Jeanette Connor', 'terminator84@ask.com', 'manager', 'Los Angeles, California', '(415) 555-0650','27' ,1);
-INSERT INTO dist_workers VALUES(12, 'Kyle Reese',  'reese2021@yahoo.com', 'assistent','----', '(415) 555-0020', '30', 1);
-INSERT INTO dist_workers VALUES(13, 'Jonh Connor', 'connor@ask.com', 'trainee', 'Manhattan, Los Angeles, California', '(415) 555-5589','17' ,1);
-INSERT INTO dist_workers VALUES(14, 'John Jonah Jameson Jr',  'daylibugle@yahoo.com', 'executive','NEW York/NY', '(415) 555-4445', '42', 1);
-INSERT INTO dist_workers VALUES(15, 'Ellen Louise Ripley', 'nostromos@ask.com', 'astronaut', '---', '(415) 555-0236','35' ,1);
+INSERT INTO dist_workers VALUES(1, 'Alfred Penworth', 'wayneenterprise@ask.com', 'butler', 'Gotham city', '(415) 555-2671','62' ,'1');
+INSERT INTO dist_workers VALUES(2, 'Rachel Dawes',  'dawes@yahoo.com', 'lawyer','Gotham city', '(415) 555-3592', '23', '1');
+INSERT INTO dist_workers VALUES(3, 'Jim lee', 'dccomics@ask.com', 'executive', 'Seul, South Corea', '(415) 555-8587','58' ,'1');
+INSERT INTO dist_workers VALUES(4, 'Todd McFarlane',  'spiderman90@yahoo.com', 'drawer','Calgary, canada', '(415) 555-4455', '61', '1');
+INSERT INTO dist_workers VALUES(5, 'Clark Kent', 'dayliplanet@ask.com', 'jornalist', 'Metropolis', '(415) 555-3335','37' ,'1');
+INSERT INTO dist_workers VALUES(6, 'Alan Moore',  'moore@yahoo.com', 'writter','Northampton, United Kingdom', '(415) 555-5587', '68', '1');
+INSERT INTO dist_workers VALUES(7, 'John Salvatore Romita Jr', 'romitajr@ask.com', 'drawer', 'New York/NY', '(415) 555-6666','66' ,'1');
+INSERT INTO dist_workers VALUES(8, 'Frank Miller',  'sincity@yahoo.com', 'writter','Olney, Maryland', '(415) 555-0214', '65', '1');
+INSERT INTO dist_workers VALUES(9, 'Benjamin Parker,', 'ben@ask.com', 'seller', 'New York/NY', '(415) 555-5578','62' ,'1');
+INSERT INTO dist_workers VALUES(10, 'Miles Bennett Dyson',  'genysis@yahoo.com', 'scientist', 'Chicago, Illinois', '(415) 555-3559', '33', '1');
+INSERT INTO dist_workers VALUES(11, 'Sarah Jeanette Connor', 'terminator84@ask.com', 'manager', 'Los Angeles, California', '(415) 555-0650','27' ,'1');
+INSERT INTO dist_workers VALUES(12, 'Kyle Reese',  'reese2021@yahoo.com', 'assistent','----', '(415) 555-0020', '30', '1');
+INSERT INTO dist_workers VALUES(13, 'Jonh Connor', 'connor@ask.com', 'trainee', 'Manhattan, Los Angeles, California', '(415) 555-5589','17' ,'1');
+INSERT INTO dist_workers VALUES(14, 'John Jonah Jameson Jr',  'daylibugle@yahoo.com', 'executive','NEW York/NY', '(415) 555-4445', '42', '1');
+INSERT INTO dist_workers VALUES(15, 'Ellen Louise Ripley', 'nostromos@ask.com', 'astronaut', '---', '(415) 555-0236','35' ,'1');
 
-INSERT INTO dist_workers VALUES(16, 'Samuel Leo Fisher', 'echelon@outlook.com', 'Secret Agent', 'Baltimore, Maryland', '(415) 555-2789', '36', 2);
+INSERT INTO dist_workers VALUES(16, 'Samuel Leo Fisher', 'echelon@outlook.com', 'Secret Agent', 'Baltimore, Maryland', '(415) 555-2789', '36', '2');
 
-INSERT INTO dist_workers VALUES(17, 'Frank Miller', 'millercomics@outlook.com', 'writter/drawer', 'Olney, Maryland', '(415) 555-8974', '65', 3);
-INSERT INTO dist_workers VALUES(18, 'Alan More', 'watchmenseries@ask.com', 'writter', 'Northampton, United Kingdom', '(415) 555-8745', '68', 3);
-INSERT INTO dist_workers VALUES(19, 'Todd McFarlane', 'spiderman90@marvel.com', 'drawer', 'Calgary, Canada', '(415) 555-7877', '61', 3);
+INSERT INTO dist_workers VALUES(17, 'Frank Miller', 'millercomics@outlook.com', 'writter/drawer', 'Olney, Maryland', '(415) 555-8974', '65', '3');
+INSERT INTO dist_workers VALUES(18, 'Alan More', 'watchmenseries@ask.com', 'writter', 'Northampton, United Kingdom', '(415) 555-8745', '68', '3');
+INSERT INTO dist_workers VALUES(19, 'Todd McFarlane', 'spiderman90@marvel.com', 'drawer', 'Calgary, Canada', '(415) 555-7877', '61', '3');
 
 SELECT * FROM dist_users;
 SELECT * FROM dist_workers;
