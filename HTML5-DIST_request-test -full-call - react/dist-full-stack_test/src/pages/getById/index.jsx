@@ -18,7 +18,6 @@ export default function GetById() {
 
     function RequetLoad(){
         // let URL=`http://localhost:8765/User/dist/worker/${id}/administration?page=${page}`
-
     }
 
     return (

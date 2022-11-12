@@ -34,16 +34,38 @@ function _data(name, email){
         
     }
 
-
-export async function signUp(name, auth, email, password,  navigation){
+    
+//comunication bettween spring and firebase OK
+export async function signUp(username, auth, email, password, navigation){
     await createUserWithEmailAndPassword(auth, email, password)
         .then(response=>{
-            _data(name, email)
 
             localStorage.setItem("Admin", JSON.stringify(response))
             localStorage.setItem("ID", JSON.stringify(response.user.uid))
 
-            navigation()
+
+            //spring API creation user
+            let URL='http://localhost:8765/User/dist/worker/user-account/administration'
+
+            let data={userId: response.user.uid, userName: username , email}
+
+            let config={ method: 'POST', 
+                body: JSON.stringify(data),
+                headers:{
+                    'Content-type':'application/json'
+                }
+            }
+
+            fetch(URL, config)
+                .then(response=>{
+                    
+                    //all ok the firebase backend will send data to spring API 
+                    response.json()
+
+                    //all ok navigate to insert page
+                    navigation()
+                })
+                
 
         }).catch((e)=>{
             console.log(e.code)

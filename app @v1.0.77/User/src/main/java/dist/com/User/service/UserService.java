@@ -1,7 +1,5 @@
 package dist.com.User.service;
 
-import java.awt.print.Pageable;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
