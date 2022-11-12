@@ -49,6 +49,9 @@ sudo docker node ls
 
 
 rm -rf devOpsDist && mkdir devOpsDist
+ 
+rm -rf DIST-project_devOps-test
+
 
 # nivel de testes de comunicação e desempenho
 
@@ -82,9 +85,9 @@ combo:
 ----------------------------------------------------
 combo:
 
-	sudo docker build -t leozin89/dist-user:v2 . &&
+	sudo docker build -t leozin89/dist-user:v1 . &&
 	sudo docker login -u leozin89 &&
-	sudo docker push leozin89/dist-user:v2
+	sudo docker push leozin89/dist-user:v1
 ----------------------------------------------------
 
 
@@ -149,7 +152,29 @@ combo:
 sudo docker network create distnetwork &&
 sudo docker run -d --name eureka-server --network distnetwork -p 8761:8761 leozin89/dist-eureka-server:v1 &&
 sudo docker run -d --name api-gateway --network distnetwork -p 8765:8765 leozin89/dist-api-gateway:v1 &&
-sudo docker run -d --name user --network distnetwork -p 8762:8762 leozin89/dist-user:v2 
+sudo docker run -d --name user --network distnetwork -p 8762:8762 leozin89/dist-user:v1 
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+# combo em ec2:
+
+
+#atualizar conforme necessidade pastas e arquivos
+-------------------------------------------------------------------------------------------------------------
+sudo apt update -y && sudo apt install git && 
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
+sudo apt update && 
+apt-cache policy docker-ce && 
+sudo apt install docker-ce -y && 
+clear &&
+sudo docker network create distnetwork &&
+sudo docker run -d --name eureka-server --network distnetwork -p 8761:8761 leozin89/dist-eureka-server:v1 &&
+sudo docker run -d --name api-gateway --network distnetwork -p 8765:8765 leozin89/dist-api-gateway:v1 &&
+sudo docker run -d --name user --network distnetwork -p 8762:8762 leozin89/dist-user:v1 
 -------------------------------------------------------------------------------------------------------------
 
 
