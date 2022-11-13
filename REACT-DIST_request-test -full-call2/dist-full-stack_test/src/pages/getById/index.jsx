@@ -23,7 +23,6 @@ export default function GetById() {
         navigate('/search',{replace:true})
     }
 
-
     function load(){
 
         let URL=localStorage.getItem("URL")
@@ -77,7 +76,6 @@ export default function GetById() {
                                         <strong>{'CONTACT:  ' + e.workerPhoneNumber}</strong>
                                         <strong>{'AGE:  ' + e.workerAge}</strong>
                                     </span>
-                                   
                                    
                                 </div>
                             )
