@@ -77,12 +77,12 @@ DROP TABLE dist_users;
 
 CREATE TABLE IF NOT EXISTS dist_workers(
 	workerId SERIAL PRIMARY KEY,
- 	workerName VARCHAR(100),
+ 	workerName VARCHAR(100) NOT NULL,
 	workerEmail VARCHAR(100) UNIQUE NOT NULL,
-	workerPost VARCHAR(100),
-	workerAddress VARCHAR(100),
-	workerPhoneNumber VARCHAR(100),
-	workerAge VARCHAR(100),
+	workerPost VARCHAR(100)NOT NULL,
+	workerAddress VARCHAR(100)NOT NULL,
+	workerPhoneNumber VARCHAR(100)NOT NULL,
+	workerAge VARCHAR(100)NOT NULL,
 	user_Id VARCHAR(250),
 	FOREIGN KEY(user_Id) REFERENCES dist_users(userId)
 );
