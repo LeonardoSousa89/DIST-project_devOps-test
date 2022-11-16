@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>teste de requisição</h3>
+
+    <div id="container">
+
+    </div>
+
+    <script>
+            let doc=document
+
+            let user1='v9Cky6EdNcT8rOqYl65XVvI2cZK2'
+            let user2='HJGiI1MaYHfDAe0mQBjp3g5rEGJ3'
+            let URL=`http://localhost:8765/User/dist/worker/user-account/${user2}/administration`
+    
+            let config={method: 'GET'}
+
+            fetch(URL, config)
+                .then(response=>{
+                    if(response.ok){
+                        response.json().then(response=>{
+                            
+                            let div=doc.getElementById('container')
+
+                            console.log(response.userName)
+                            console.log(response.email)
+
+                            let strongName=doc.createElement('strong')
+                            strongName.append(response.userName + ', ')
+                            div.append(strongName)
+
+                            let strongEmail=doc.createElement('strong')
+                            strongEmail.append(response.email)
+                            div.append(strongEmail)
+                        })
+                    }else{
+                        alert('was an error with your request')
+                    }
+                })
+                .catch((e)=>console.log(e))
+    </script>
+</body>
+</html>

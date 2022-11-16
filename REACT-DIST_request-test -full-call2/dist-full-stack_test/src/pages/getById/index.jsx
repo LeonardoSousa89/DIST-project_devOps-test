@@ -37,7 +37,7 @@ export default function GetById() {
             if(response.status === 200){
 
                 response.json().then(response=>{
-                    setData(response.content)
+                    setData(response.content.name)
                 })
             }
             if(response.status === 404){
