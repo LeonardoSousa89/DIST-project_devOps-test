@@ -1,5 +1,6 @@
 package dist.com.User.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import dist.com.User.config.URL;
 import dist.com.User.model.User;
+import dist.com.User.model.Workers;
 import dist.com.User.projection.WorkersProjection;
 import dist.com.User.service.UserService;
 
@@ -27,9 +30,18 @@ public class UserController {
 	private UserService service;
 	
 	@GetMapping(value = "/user-account/{id}/administration")
-	private ResponseEntity<Optional> getAccountCredentials(@PathVariable String id){
+	private ResponseEntity<Optional<User>> getAccountCredentials(@PathVariable String id){
 		Optional<User> user = service.findById(id);
 		return ResponseEntity.status(HttpStatus.OK).body(user);
+	}
+	
+	@GetMapping(value = "/user-account/employee/{id}/administration")
+	private ResponseEntity<Optional<WorkersProjection>> findByWorkerName(@PathVariable String id, 
+															   @RequestParam(value = "workerName", required = true) String workerName) 
+															   throws UnsupportedEncodingException{
+		workerName = URL.decodeParam(workerName);
+		Optional<WorkersProjection> employee = service.findByWorkerName(id, workerName);
+		return ResponseEntity.status(HttpStatus.OK).body(employee);
 	}
 	
 	@PostMapping(value = "/user-account/administration")

@@ -1,5 +1,7 @@
 package dist.com.User.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,5 +23,16 @@ public interface WorkersRepository extends JpaRepository<Workers, Long>{
 			"	w.workerAge" + 
 			" FROM dist_users u INNER JOIN dist_workers w ON u.userId = w.user_id WHERE u.userId = (:id)")
 	Page<WorkersProjection> findByUserData(String  id, org.springframework.data.domain.Pageable pageRequest); 
+	
+	@Query(nativeQuery = true, value = "SELECT" + 
+			"   w.workerId," + 
+			" 	w.workerName ," + 
+			"	w.workerEmail," + 
+			"	w.workerPost, " + 
+			"	w.workerAddress," + 
+			"	w.workerPhoneNumber," + 
+			"	w.workerAge" + 
+			" FROM dist_users u INNER JOIN dist_workers w ON u.userId = w.user_id WHERE u.userId = (:id) AND w.workerName = (:workerName)")
+	Optional<WorkersProjection> findByWorkerName(String id, String workerName);
 	
 }

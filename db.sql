@@ -163,6 +163,16 @@ ON u.userId =w.user_id
 WHERE u.userId ='3';
 
 
+SELECT w.workerid, 
+	 w.workername,
+	 w.workeremail,
+ 	 w.workerpost,
+	 w.workeraddress,
+	 w.workerphonenumber,
+	 w.workerage	
+ FROM dist_users u INNER JOIN dist_workers w ON u.userId = w.user_id WHERE u.userId = 'v9Cky6EdNcT8rOqYl65XVvI2cZK2' AND w.workername = 'Kyle Reese';	
+
+
 /*paginação*/
 /* LIMIT por página, OFFSET saltos para a próxima consulta*/
 select * from dist_workers LIMIT 3 OFFSET 1;
