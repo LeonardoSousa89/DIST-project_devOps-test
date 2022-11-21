@@ -33,6 +33,6 @@ public interface WorkersRepository extends JpaRepository<Workers, Long>{
 			"	w.workerPhoneNumber," + 
 			"	w.workerAge" + 
 			" FROM dist_users u INNER JOIN dist_workers w ON u.userId = w.user_id WHERE u.userId = (:id) AND w.workerName = (:workerName)")
-	Optional<WorkersProjection> findByWorkerName(String id, String workerName);
+	Page<Optional<WorkersProjection>> findByWorkerName(String id, String workerName,  org.springframework.data.domain.Pageable pageRequest);
 	
 }

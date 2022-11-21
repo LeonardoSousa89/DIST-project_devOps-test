@@ -36,11 +36,14 @@ public class UserController {
 	}
 	
 	@GetMapping(value = "/user-account/employee/{id}/administration")
-	private ResponseEntity<Optional<WorkersProjection>> findByWorkerName(@PathVariable String id, 
-															   @RequestParam(value = "workerName", required = true) String workerName) 
+	private ResponseEntity<Page<Optional<WorkersProjection>>> findByWorkerName(@PathVariable String id, 
+															   @RequestParam(value = "workerName", required = true) String workerName,
+															   @RequestParam(value = "page",  required = false,  defaultValue = "0") int page,
+															   @RequestParam(value = "size",  required = false, defaultValue = "10") int size) 
 															   throws UnsupportedEncodingException{
 		workerName = URL.decodeParam(workerName);
-		Optional<WorkersProjection> employee = service.findByWorkerName(id, workerName);
+		PageRequest pageRequest = PageRequest.of(page, size);
+		Page<Optional<WorkersProjection>> employee = service.findByWorkerName(id, workerName, pageRequest);
 		return ResponseEntity.status(HttpStatus.OK).body(employee);
 	}
 	
@@ -61,7 +64,7 @@ public class UserController {
 	@GetMapping(value = "/{id}/administration")
 	private ResponseEntity<Page<WorkersProjection>> findByUserData(@PathVariable String id,  
 																   @RequestParam(value = "page",  required = false,  defaultValue = "0") int page,
-																   @RequestParam(value = "size",  required = false, defaultValue = "5") int size){
+																   @RequestParam(value = "size",  required = false, defaultValue = "10") int size){
 		/*URL para paginação:
 		 * 
 		 * o parametro page diz em qual página determina situa o volume de dados,

@@ -41,9 +41,9 @@ public class UserService {
 	
 	
 	
-	public Optional<WorkersProjection> findByWorkerName(String id, String workerName){
+	public Page<Optional<WorkersProjection>> findByWorkerName(String id, String workerName, PageRequest pageRequest){
 		
-			Optional<WorkersProjection>  employee = workersRepository.findByWorkerName(id, workerName);
+			Page<Optional<WorkersProjection>>  employee = workersRepository.findByWorkerName(id, workerName, pageRequest);
 				
 				if(employee.isEmpty()) {
 					throw new ResourceNotFoundException("employee not found.");
