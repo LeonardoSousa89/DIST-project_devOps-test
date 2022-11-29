@@ -1,6 +1,7 @@
 # https://www.techtudo.com.br/noticias/2016/09/como-executar-dois-ou-mais-comandos-do-linux-ao-mesmo-tempo.ghtml
 
 #comandos básicos (docker & linux) e navegação no ambiente
+#este arquivo foi utilizado em recursos de teste e desenvolvimento não para o build final
 
 #linux PID/Network
 https://www.certificacaolinux.com.br/portas-abertas-no-linux/#:~:text=Os%20comandos%20netstat%2C%20ss%2C%20lsof,local%2C%20quanto%20de%20m%C3%A1quinas%20remotas.

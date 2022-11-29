@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dist.com.User.config.URL;
 import dist.com.User.model.User;
-import dist.com.User.model.Workers;
 import dist.com.User.projection.WorkersProjection;
 import dist.com.User.service.UserService;
 

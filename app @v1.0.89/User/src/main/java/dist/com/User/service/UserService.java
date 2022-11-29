@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import dist.com.User.model.User;
-import dist.com.User.model.Workers;
 import dist.com.User.projection.WorkersProjection;
 import dist.com.User.repository.UserRepository;
 import dist.com.User.repository.WorkersRepository;

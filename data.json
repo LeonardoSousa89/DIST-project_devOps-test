@@ -1,17 +1,19 @@
-	[
+[
     {	
-		"userId":"1",
-		"username":"Thomas Wayne"
-    	"email":"Thomas@gmail.com",
+		"userId":"v9Cky6EdNcT8rOqYl65XVvI2cZK2",
+		"username":"Thomas Wayne",
+    	"email":"Thomas@gmail.com"
     	
     },
-    {	"userId":"2",
+    {	
+		"userId":"HJGiI1MaYHfDAe0mQBjp3g5rEGJ3",
 		"username":"Thomas Leo Clancy Jr",
-    	"email":"Clancys@hotmail.com",
+    	"email":"Clancys@hotmail.com"
     },
-	{	"userId":"3",
+	{	
+		"userId":"JENHoRidzSY7nMeIFISpw7OKdge2",
 		"username":"Jim Lee",
-    	"email":"dccomics@hotmail.com",
+    	"email":"dccomics@hotmail.com"
     },
     
 	    {
@@ -21,7 +23,9 @@
 	        "workerAddress": "Hells's Kitchen, New York",
 	        "workerPhoneNumber": "(415) 555-2788",
 	        "workerAge": "35",
-	        "admin":{ "userId":"1" }
+	        "admin":{ 
+				"userId":"v9Cky6EdNcT8rOqYl65XVvI2cZK2" 
+				}
 	    },{
 	        "workerName": "Claire Bennet",
 	        "workerEmail": "heroessn32009@gmail.com",
@@ -29,7 +33,9 @@
 	        "workerAddress": "Odessa, Texas",
 	        "workerPhoneNumber": "(415) 555-4458",
 	        "workerAge": "21",
-	        "admin":{ "userId":"1" }
+	        "admin":{ 
+				"userId":"v9Cky6EdNcT8rOqYl65XVvI2cZK2" 
+			}
 		},{
 			"workerName": "Lana Lang",
 			"workerEmail": "lanacoofe@gmail.com",
@@ -37,7 +43,9 @@
 			"workerAddress": "Smallville",
 			"workerPhoneNumber": "(415) 555-7548",
 			"workerAge": "24",
-			"admin":{ "userId":"2" }
+			"admin":{ 
+				"userId":"HJGiI1MaYHfDAe0mQBjp3g5rEGJ3" 
+				}
 			},{
 	        "workerName": "Harry Osborn",
 	        "workerEmail": "oscorp@gmail.com",
@@ -45,6 +53,8 @@
 	        "workerAddress": "Manhattan, New York",
 	        "workerPhoneNumber": "(415) 555-7845",
 	        "workerAge": "23",
-	        "admin":{ "userId":"3" }
+	        "admin":{ 
+				"userId":"JENHoRidzSY7nMeIFISpw7OKdge2" 
+			}
 	    }
 ]
